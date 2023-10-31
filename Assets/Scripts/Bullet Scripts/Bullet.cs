@@ -21,7 +21,9 @@ public class Bullet : MonoBehaviour
 
     private void Shoot()
     {
-        rb.velocity = new Vector2(speed, 0);
+
+
+        rb.velocity = new Vector2(speed, rb.velocity.y);
     }
 
 }
