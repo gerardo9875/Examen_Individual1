@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class Shoot : MonoBehaviour
 {
     [SerializeField] private GameObject bullet;
     [SerializeField] private Transform shootcontroller;
-    [SerializeField] private int munition;
+    [SerializeField] private int munition = 20;
 
     
 
@@ -21,12 +22,27 @@ public class Shoot : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Shooting();
+            if(munition > 0)
+            {
+                Shooting();
+            }
         }
     }
 
     private void Shooting()
     {
         Instantiate(bullet,shootcontroller.position,shootcontroller.rotation);
+        munition--;
+
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Ammo"))
+        {
+            munition = munition + 20;
+            Destroy(collision.gameObject);
+        }
     }
 }
