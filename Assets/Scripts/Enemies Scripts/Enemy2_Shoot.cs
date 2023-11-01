@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Enemy2_Shoot : MonoBehaviour
 {
+    [SerializeField] private GameObject bullet;
+    [SerializeField] private Transform shootcontroller;
+    private float firerate = 1.5f;
+    private float nextfiretime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +18,10 @@ public class Enemy2_Shoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(nextfiretime <Time.time){
+            Instantiate(bullet, shootcontroller.transform.position, Quaternion.identity);
+            nextfiretime = Time.time + firerate;
+        }
         
     }
 }

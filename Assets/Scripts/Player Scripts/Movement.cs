@@ -27,4 +27,5 @@ public class Movement : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
         rb2d.velocity = new Vector2 (moveX * speed, moveY * speed);
     }
+
 }

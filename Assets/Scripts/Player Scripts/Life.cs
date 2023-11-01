@@ -37,6 +37,17 @@ public class Life : MonoBehaviour
             life++;
             Destroy(collision.gameObject);
         }   
+
+        if (collision.CompareTag("Enemybullet"))
+        {
+            life--;
+            Destroy(collision.gameObject);
+            if (life <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
+    
 }

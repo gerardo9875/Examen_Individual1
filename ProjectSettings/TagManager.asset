@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Enemy1
   - Wall
+  - Enemybullet
+  - Bullet1
+  - Health
+  - Ammo
+  - Enemy2
   layers:
   - Default
   - TransparentFX
